@@ -1,0 +1,93 @@
+/* ========================================
+   Personal Wallet — Custom CSS
+   ======================================== */
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #22C55E; border-radius: 99px; }
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Tabular nums for financial amounts */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* ======= Animations ======= */
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(0);    opacity: 1; }
+  to   { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scalePop {
+  0%   { transform: scale(0.8); opacity: 0; }
+  60%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-slide-up   { animation: slideUp 0.3s ease-out forwards; }
+.animate-slide-down { animation: slideDown 0.3s ease-in forwards; }
+.animate-fade-in    { animation: fadeIn 0.25s ease-out forwards; }
+.animate-scale-pop  { animation: scalePop 0.3s ease-out forwards; }
+
+/* Stagger children */
+.stagger > * { animation: fadeIn 0.3s ease-out both; }
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 50ms; }
+.stagger > *:nth-child(3) { animation-delay: 100ms; }
+.stagger > *:nth-child(4) { animation-delay: 150ms; }
+.stagger > *:nth-child(5) { animation-delay: 200ms; }
+
+/* ======= Transitions ======= */
+button, a, input, select, textarea, [role="button"] {
+  transition: all 0.2s ease;
+}
+
+/* Safe area for iPhone */
+.bottom-nav {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Touch targets - default for action buttons */
+button:not(.btn-compact):not(.tab-btn), 
+a:not(.btn-compact):not(.tab-btn), 
+[role="button"]:not(.btn-compact) {
+  min-height: 44px;
+}
+
+/* Floating FAB Button Styling */
+.fab-floating {
+  box-shadow: 0 10px 25px -4px rgba(163, 230, 53, 0.65), 0 4px 12px -2px rgba(163, 230, 53, 0.4);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fab-floating:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 16px 32px -4px rgba(163, 230, 53, 0.8), 0 8px 16px -2px rgba(163, 230, 53, 0.5);
+}
+
+.fab-floating:active {
+  transform: translateY(0px) scale(0.94);
+  box-shadow: 0 6px 14px -2px rgba(163, 230, 53, 0.5);
+}
+
+/* Prevent text selection on UI elements */
+nav, .no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
